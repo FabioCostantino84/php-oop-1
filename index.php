@@ -29,16 +29,17 @@ class Movie
 
     public $title;
 
-    public $genre;
+    public $genres;
 
     public $year;
 
     // Costruttore
-    public function __construct($image, $title, $genre, $year)
+    public function __construct($image, $title, $genres, $year)
     {
         $this->image = $image;
         $this->title = $title;
-        $this->genre = $genre;
+        // In questo modo si garantisce che la proprietà $genres sia sempre un array, anche se viene fornito solo un genere come stringa. Così posso mettere più generiper ogni film.
+        $this->genres = is_array($genres) ? $genres : [$genres];
         $this->year = $year;
     }
 
@@ -72,7 +73,7 @@ class Movie
     {
         echo "Locandina: <img src='{$this->image}' alt='{$this->title}'>"."<br>";
         echo "Titolo: " . $this->title . "<br>";
-        echo "Genere: " . $this->genre . "<br>";
+        echo "Generi: " . implode(', ', $this->genres) . "<br>";
         echo "Anno di uscita: " . $this->year . "<br>";
         echo "<br>";
     }
@@ -82,8 +83,8 @@ class Movie
 
 
 // Istanza di due oggetti
-$movie1 = new Movie("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.posterlounge.it%2Fp%2F705265.html&psig=AOvVaw0PCalJb3fekx-AVCW8V6zu&ust=1697830103032000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJD7iJTsgoIDFQAAAAAdAAAAABBL", "Top Gun", "Azione", 1986);
-$movie2 = new Movie("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mymovies.it%2Ffilm%2F2009%2Favatar%2Fposter%2F&psig=AOvVaw0jvgSMPEMB8zsE1vpPuRS7&ust=1697830029649000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPCNi_LrgoIDFQAAAAAdAAAAABAE", "Avtar", "Fantasy", 2009);
+$movie1 = new Movie("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.posterlounge.it%2Fp%2F705265.html&psig=AOvVaw0PCalJb3fekx-AVCW8V6zu&ust=1697830103032000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJD7iJTsgoIDFQAAAAAdAAAAABBL", "Top Gun", ["Azione", "Drammatico"], 1986);
+$movie2 = new Movie("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mymovies.it%2Ffilm%2F2009%2Favatar%2Fposter%2F&psig=AOvVaw0jvgSMPEMB8zsE1vpPuRS7&ust=1697830029649000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPCNi_LrgoIDFQAAAAAdAAAAABAE", "Avtar", ["Fantasy", "Azione"], 2009);
 
 // ESEMPIO 2: Stampa più info in modo semplice
 /* echo "Informazioni sui film:<br>"; */

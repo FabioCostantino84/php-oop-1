@@ -38,6 +38,42 @@ class Movie
         $this->genre = $genre;
         $this->year = $year;
     }
+
+    // Metodo per visualizzare le informazioni
+    public function viewTitle()
+    {
+        return $this->title;
+        /* echo "Titolo: " . $this->title;
+        echo "Genere: " . $this->genre;
+        echo "Anno di uscita: " . $this->year; */
+    }
+    public function viewGenre()
+    {
+        return $this->genre;
+        /* echo "Titolo: " . $this->title;
+        echo "Genere: " . $this->genre;
+        echo "Anno di uscita: " . $this->year; */
+    }
+    public function viewYear()
+    {
+        return $this->year;
+        /* echo "Titolo: " . $this->title;
+        echo "Genere: " . $this->genre;
+        echo "Anno di uscita: " . $this->year; */
+    }
+
 }
 
+// Istanza di due oggetti
+$movie1 = new Movie("Top Gun", "Azione", 1986);
+$movie2 = new Movie("Avtar", "Fantasy", 2009);
+
+// Stampa delle informazioni
+echo "Titolo: " . $movie1->viewTitle();
+echo "Genere: " . $movie1->viewGenre();
+echo "Anno di uscita: ". $movie1->viewYear();
+echo "<br>";
+echo "Titolo: " . $movie2->viewTitle();
+echo "Genere: " . $movie2->viewGenre();
+echo "Anno di uscita: ". $movie2->viewYear();
 ?>

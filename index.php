@@ -25,6 +25,8 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 class Movie
 {
     // Variabili d'istanza
+    public $image;
+
     public $title;
 
     public $genre;
@@ -32,8 +34,9 @@ class Movie
     public $year;
 
     // Costruttore
-    public function __construct($title, $genre, $year)
+    public function __construct($image, $title, $genre, $year)
     {
+        $this->image = $image;
         $this->title = $title;
         $this->genre = $genre;
         $this->year = $year;
@@ -67,17 +70,20 @@ class Movie
     // ESEMPIO 2: singolo metodo per più info
     public function viewInfo()
     {
+        echo "Locandina: <img src='{$this->image}' alt='{$this->title}'>"."<br>";
         echo "Titolo: " . $this->title . "<br>";
         echo "Genere: " . $this->genre . "<br>";
         echo "Anno di uscita: " . $this->year . "<br>";
         echo "<br>";
     }
 
+    
 }
 
+
 // Istanza di due oggetti
-$movie1 = new Movie("Top Gun", "Azione", 1986);
-$movie2 = new Movie("Avtar", "Fantasy", 2009);
+$movie1 = new Movie("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.posterlounge.it%2Fp%2F705265.html&psig=AOvVaw0PCalJb3fekx-AVCW8V6zu&ust=1697830103032000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJD7iJTsgoIDFQAAAAAdAAAAABBL", "Top Gun", "Azione", 1986);
+$movie2 = new Movie("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mymovies.it%2Ffilm%2F2009%2Favatar%2Fposter%2F&psig=AOvVaw0jvgSMPEMB8zsE1vpPuRS7&ust=1697830029649000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPCNi_LrgoIDFQAAAAAdAAAAABAE", "Avtar", "Fantasy", 2009);
 
 // ESEMPIO 2: Stampa più info in modo semplice
 /* echo "Informazioni sui film:<br>"; */
@@ -92,4 +98,5 @@ echo "<br>";
 echo "Titolo: " . $movie2->viewTitle();
 echo "Genere: " . $movie2->viewGenre();
 echo "Anno di uscita: ". $movie2->viewYear(); */
+
 ?>

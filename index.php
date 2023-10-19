@@ -40,26 +40,37 @@ class Movie
     }
 
     // Metodo per visualizzare le informazioni
-    public function viewTitle()
+
+    // ESEMPIO 1: singoli metodi per le info 
+    /* public function viewTitle()
     {
         return $this->title;
-        /* echo "Titolo: " . $this->title;
+        echo "Titolo: " . $this->title;
         echo "Genere: " . $this->genre;
-        echo "Anno di uscita: " . $this->year; */
+        echo "Anno di uscita: " . $this->year;
     }
     public function viewGenre()
     {
         return $this->genre;
-        /* echo "Titolo: " . $this->title;
+        echo "Titolo: " . $this->title;
         echo "Genere: " . $this->genre;
-        echo "Anno di uscita: " . $this->year; */
+        echo "Anno di uscita: " . $this->year;
     }
     public function viewYear()
     {
         return $this->year;
-        /* echo "Titolo: " . $this->title;
+        echo "Titolo: " . $this->title;
         echo "Genere: " . $this->genre;
-        echo "Anno di uscita: " . $this->year; */
+        echo "Anno di uscita: " . $this->year;
+    } */
+
+    // ESEMPIO 2: singolo metodo per più info
+    public function viewInfo()
+    {
+        echo "Titolo: " . $this->title . "<br>";
+        echo "Genere: " . $this->genre . "<br>";
+        echo "Anno di uscita: " . $this->year . "<br>";
+        echo "<br>";
     }
 
 }
@@ -68,12 +79,17 @@ class Movie
 $movie1 = new Movie("Top Gun", "Azione", 1986);
 $movie2 = new Movie("Avtar", "Fantasy", 2009);
 
-// Stampa delle informazioni
-echo "Titolo: " . $movie1->viewTitle();
+// ESEMPIO 2: Stampa più info in modo semplice
+/* echo "Informazioni sui film:<br>"; */
+$movie1->viewInfo();
+$movie2->viewInfo();
+
+// ESEMPIO 1: Stampa delle informazioni
+/* echo "Titolo: " . $movie1->viewTitle();
 echo "Genere: " . $movie1->viewGenre();
 echo "Anno di uscita: ". $movie1->viewYear();
 echo "<br>";
 echo "Titolo: " . $movie2->viewTitle();
 echo "Genere: " . $movie2->viewGenre();
-echo "Anno di uscita: ". $movie2->viewYear();
+echo "Anno di uscita: ". $movie2->viewYear(); */
 ?>

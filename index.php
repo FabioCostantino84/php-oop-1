@@ -28,7 +28,9 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
     
     public $genre;
 
-    public $available = true;
+    public $year;
+
+
  }
  
  ?>
